@@ -1,0 +1,21 @@
+{% extends "create_edit_blog.html" %}
+
+{% block title %}
+	Edit your Blog
+{% endblock %}
+
+{% block form_title %}
+    Edit blog
+{% endblock %}
+
+{% block title_value %}
+    {{ blog.title }}
+{% endblock %}
+
+{% block content_value %}
+    {{ blog.content }}
+{% endblock %}
+
+{% block written_by_value %}
+    {{ blog.written_by }}
+{% endblock %}

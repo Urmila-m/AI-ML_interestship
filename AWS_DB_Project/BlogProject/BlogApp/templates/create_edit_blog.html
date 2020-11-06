@@ -1,0 +1,22 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+<h3 style="text-align: center;">{% block form_title %}{% endblock form_title %}</h3>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="blog_title">Title</label>
+        <input required name="title" type="form-text" class="form-control" id="blog_title" placeholder="Enter title"
+               value={% block title_value %}{% endblock title_value %}>
+    </div>
+    <div class="form-group">
+        <label for="blog_content">Content</label>
+        <textarea required class="form-control" name="content" id="blog_content" placeholder="Blog Content..">{% block content_value %}{% endblock %}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="blog_writer">Written By</label>
+        <input type="form-text" required name="written_by" class="form-control" id="blog_writer" value={% block written_by_value %}{% endblock %}>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}

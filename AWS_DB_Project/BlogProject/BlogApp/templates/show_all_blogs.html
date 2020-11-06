@@ -1,0 +1,44 @@
+{% extends "base_template.html" %}
+{% block title %}
+All Blogs
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+<a class="btn btn-primary" href="{% url 'create_blog' %}" style="margin-bottom: 30px; display:block">Create Blog</a>
+
+{% if blog_list %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Written By</th>
+        <th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for blog in blog_list %}
+    <tr>
+        <td>{{ blog.id }}</td>
+        <td><a href="../show_blog/{{blog.id}}">{{ blog.title }}</a></td>
+        <td>{{ blog.written_by }}</td>
+        <td>
+            <a class="btn btn-primary" href="../edit_blog/{{blog.id}}">Edit</a>
+            <a class="btn btn-danger" href="../delete_blog/{{blog.id}}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h4 style="text-align:center;">No blogs yet. Create one yourself!</h4>
+{% endif %}
+{% endblock %}

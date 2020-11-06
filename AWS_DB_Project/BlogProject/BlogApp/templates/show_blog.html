@@ -1,0 +1,10 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+<div>
+    <a class="btn btn-primary" style="margin-bottom:20px;" href="{% url 'get_all_blog' %}">All Blogs</a>
+    <h4 style="text-align:center; display:block;">{{ blog.title }}</h4>
+    <p>{{ blog.content }}</p>
+    <p style="text-align:right">Written By: <b>{{ blog.written_by }}</b></p>
+</div>
+{% endblock %}
